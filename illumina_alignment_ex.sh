@@ -29,7 +29,7 @@ bwa mem -t $CPU $GENOME $FWDREAD $REVREAD > local_align.sam
 samtools fixmate -O bam local_align.sam align_fixmate.bam
 samtools sort --threads $CPU -O BAM -o align.bam align_fixmate.bam
 samtools index align.bam
-#samtools tview align.bam
+#samtools tview align.bam $GENOME
 
 samtools consensus -f fastq align.bam -o cons.fq
 
